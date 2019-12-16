@@ -9,6 +9,8 @@ const verifyLogin = async (req, res, next) => {
     const { userdata } = decodedtoken;
 
     const user = new User(userdata);
+    const instance=await User.findOne({email:user.email});
+    if(!instance){
     await user.save();
 
     const notificationtype = await NotificationType.findOne({
@@ -20,6 +22,7 @@ const verifyLogin = async (req, res, next) => {
       typeId: notificationtype._id
     });
     await notification.save();
+    }
     // res.redirect("http://localhost:3000");
     res.redirect("http://kra.n1.iworklab.com");
   } catch (e) {
