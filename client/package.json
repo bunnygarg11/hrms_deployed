@@ -25,7 +25,6 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.88.1"
   },
-
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

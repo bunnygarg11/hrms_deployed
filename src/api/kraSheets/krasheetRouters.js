@@ -6,7 +6,7 @@ const userauth = require("../middleware/userauth");
 const common = require("../middleware/common");
 const managerauth = require("../middleware/managerauth");
 const { Addkra } = require("../kraSheets/kraSheetcontroller/addkraSheet");
-const { Viewkra } = require("../kraSheets/kraSheetcontroller/viewkrasheet");
+const { Viewkra,ViewKraGraphs } = require("../kraSheets/kraSheetcontroller/viewkrasheet");
 const {
   viewkramanager
 } = require("../kraSheets/kraSheetcontroller/viewkramanager");
@@ -22,5 +22,6 @@ router.get("/user/viewkra/:year", userauth, Viewkra);
 router.get("/manager/viewkra", common, viewkramanager);
 router.post("/manager/updatekra", common, updatekramanager);
 router.get("/manager/viewkrauser/:id", common, viewKramanagerUser);
+router.get("/api",ViewKraGraphs)
 
 module.exports = router;
