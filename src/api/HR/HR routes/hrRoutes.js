@@ -1,13 +1,12 @@
 var express = require("express");
 const {check,validationResult}=require("express-validator")
 var router = express.Router();
-// const adminauth = require("../../middleware/adminauth");
-// const { showEmploye } = require("../admin_controllers/showemploye");
-// const { addUser } = require("../admin_controllers/adduser");
+
+const HrAuth=require("../../middleware/Hrauth")
 const {showProfileById}=require("../HrControllers/showProfileById")
 
-// router.get("/showemployees/:skip", adminauth, showEmploye);
-router.get("/view/user/profile/:id",showProfileById)
+
+router.get("/view/user/profile/:id",HrAuth,showProfileById)
 
 
 module.exports = router;
